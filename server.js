@@ -9,8 +9,9 @@ app.use(express.json());
 
 app.use("/", routes);
 
-const PORT = 3000;
+// ✅ FIXED FOR RENDER
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-  console.log(`✅ Backend running on http://localhost:${PORT}`);
+  console.log(`✅ Backend running on port ${PORT}`);
 });
