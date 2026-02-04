@@ -12,15 +12,15 @@ router.post("/orders", controller.createOrder);
 // Get all orders (for chef / status screen)
 router.get("/orders", controller.getOrders);
 
-// Update order status (Pending → In Progress → Ready → Served)
+// Update order status
 router.put("/orders/status", controller.updateOrderStatus);
 
-// ================= LOGIN =================
+// Login
 router.post("/login", controller.login);
 
 // Protected routes
-router.get("/me", authMiddleware, controllers.getProfile);
-router.put("/me", authMiddleware, controllers.updateProfile);
-router.put("/change-password", authMiddleware, controllers.changePassword);
+router.get("/me", authMiddleware, controller.getProfile);
+router.put("/me", authMiddleware, controller.updateProfile);
+router.put("/change-password", authMiddleware, controller.changePassword);
 
 module.exports = router;
